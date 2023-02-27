@@ -13,7 +13,7 @@
         <action
             android:id="@+id/action_loginFragment_to_page1Fragment"
             app:destination="@id/page1Fragment"
-            app:popUpTo="@id/loginFragment"
+            app:popUpTo="@id/signInFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
@@ -50,7 +50,7 @@
         <action
             android:id="@+id/action_profileFragment_to_signInFragment"
             app:destination="@id/signInFragment"
-            app:popUpTo="@id/profileFragment"
+            app:popUpTo="@id/signInFragment"
             app:popUpToInclusive="true" />
     </fragment>
     <fragment

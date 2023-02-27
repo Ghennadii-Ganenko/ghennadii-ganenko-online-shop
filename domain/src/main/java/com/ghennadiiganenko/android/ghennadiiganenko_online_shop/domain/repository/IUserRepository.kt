@@ -7,5 +7,6 @@ interface IUserRepository {
     suspend fun deleteUser(user: UserEntity)
     suspend fun getAll(): List<UserEntity>
     suspend fun isRegistered(user: UserEntity): Boolean
+    suspend fun isNameRegistered(firstName: String): Boolean
     suspend fun getUser(firstName: String): UserEntity
 }

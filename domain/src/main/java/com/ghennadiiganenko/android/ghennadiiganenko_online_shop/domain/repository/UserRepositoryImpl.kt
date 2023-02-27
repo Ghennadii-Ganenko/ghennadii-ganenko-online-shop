@@ -24,6 +24,10 @@ class UserRepositoryImpl(private val userDatabase: UserDatabase) : IUserReposito
         )
     }
 
+    override suspend fun isNameRegistered(firstName: String): Boolean {
+        return userDatabase.userDao.isNameRegistered(firstName = firstName)
+    }
+
     override suspend fun getUser(firstName: String): UserEntity {
         return userDatabase.userDao.getUser(firstName = firstName)
     }

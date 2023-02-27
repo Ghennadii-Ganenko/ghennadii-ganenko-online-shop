@@ -17,6 +17,9 @@ interface UserDao {
     @Query("SELECT EXISTS(SELECT * FROM user WHERE firstName = :firstName OR lastName = :lastName OR email = :email)")
     fun isRegistered(firstName: String, lastName: String, email: String): Boolean
 
+    @Query("SELECT EXISTS(SELECT * FROM user WHERE firstName = :firstName)")
+    fun isNameRegistered(firstName: String): Boolean
+
     @Query("SELECT * FROM user WHERE firstName = :firstName")
     fun getUser(firstName: String): UserEntity
 }

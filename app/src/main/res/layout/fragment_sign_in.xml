@@ -159,7 +159,7 @@
             app:layout_constraintTop_toTopOf="@id/tvAlreadyHaveAnAccount"
             app:layout_constraintBottom_toBottomOf="@id/tvAlreadyHaveAnAccount"
             app:layout_constraintStart_toEndOf="@id/tvAlreadyHaveAnAccount"
-            android:layout_marginStart="4dp"
+            android:padding="10dp"
             android:text="@string/log_in"
             android:textSize="10sp"
             tools:ignore="SmallSp"

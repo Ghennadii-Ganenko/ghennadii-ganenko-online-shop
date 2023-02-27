@@ -17,7 +17,9 @@ val domainModule = module {
 
     factory { GetAllUsersUseCase(get(), get()) }
 
+    factory { GetUserUseCase(get(), get()) }
+
     factory { CheckUserUseCase(get(), get()) }
 
-    factory { GetUserUseCase(get(), get()) }
+    factory { CheckNameUseCase(get()) }
 }
