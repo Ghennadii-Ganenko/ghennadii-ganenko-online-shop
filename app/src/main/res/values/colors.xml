@@ -6,25 +6,36 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="amethyst">#545589</color>
     <color name="solitude">#EEEFF4</color>
+    <color name="solitudeE5">#E5E9EF</color>
     <color name="whiteF5">#F5F6F6</color>
     <color name="ghost_white">#FAF9FF</color>
+    <color name="white_blue">#D9E5E9EF</color>
     <color name="white">#FFFFFFFF</color>
     <color name="maire">#040402</color>
+    <color name="black07">#070604</color>
+    <color name="black_russian18">#181726</color>
     <color name="black_russian">#161826</color>
     <color name="silver">#C0C0C0</color>
     <color name="grayA6">#A6A7AB</color>
     <color name="gray91">#E8E8E8</color>
     <color name="gray80">#808080</color>
     <color name="gray3F">#3F3F3F</color>
+    <color name="gray77_85">#D9C4C4C4</color>
+    <color name="gray77">#C4C4C4</color>
+    <color name="gray73">#737373</color>
+    <color name="gray68">#ADADAD</color>
     <color name="suva_gray">#909090</color>
     <color name="gray">#7B7B7B</color>
     <color name="matterhorn">#4E4D4D</color>
     <color name="zambezi">#5B5B5B</color>
     <color name="blue73">#737297</color>
     <color name="blue25">#254FE6</color>
+    <color name="blue99">#99A0FF</color>
     <color name="blue">#4E55D7</color>
     <color name="mercury">#EAEAEA</color>
+    <color name="redF9">#F93A3A</color>
     <color name="cerise">#E7405E</color>
 
 </resources>

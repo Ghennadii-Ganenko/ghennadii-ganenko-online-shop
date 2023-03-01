@@ -5,9 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.domain.model.User
-import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.domain.usecase.AddUserUseCase
-import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.domain.usecase.CheckUserUseCase
+import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.domain.db.model.User
+import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.domain.db.usecase.AddUserUseCase
+import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.domain.db.usecase.CheckUserUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.databinding.FragmentSignInBinding
-import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.domain.model.User
+import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.domain.db.model.User
 import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.fragment.sign.viewmodel.SignInViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.properties.Delegates
@@ -61,11 +61,13 @@ class SignInFragment : Fragment() {
                 }
 
                 //Check if email already registered
-                viewModel.checkUser(User(
+                viewModel.checkUser(
+                    User(
                     firstName = etFirstName.text.toString(),
                     lastName = etLastName.text.toString(),
                     email = etEmail.text.toString()
-                ))
+                )
+                )
             }
 
             tvLogIn.setOnClickListener {
