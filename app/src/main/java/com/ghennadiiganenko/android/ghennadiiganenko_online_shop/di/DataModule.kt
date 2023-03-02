@@ -3,7 +3,7 @@ package com.ghennadiiganenko.android.ghennadiiganenko_online_shop.di
 import android.app.Application
 import androidx.room.Room
 import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.db.dao.UserDao
-import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.db.model.database.UserDatabase
+import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.db.database.UserDatabase
 import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.network.api.NetworkApi
 import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.network.datasource.RemoteDataSource
 import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.network.repository.FlashSaleRepository
@@ -17,15 +17,6 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.concurrent.TimeUnit
 
 val dataModule = module {
-    fun provideDatabase(application: Application) : UserDatabase {
-        return Room.databaseBuilder(application, UserDatabase::class.java, "user_database")
-            .fallbackToDestructiveMigration()
-            .build()
-    }
-
-    fun provideUserDao(database: UserDatabase) : UserDao {
-        return database.userDao
-    }
 
     single { provideDatabase(androidApplication()) }
     single { provideUserDao(get()) }
@@ -53,3 +44,13 @@ fun provideDefaultOkHttpClient() = OkHttpClient.Builder()
     .readTimeout(30, TimeUnit.SECONDS)
     .writeTimeout(30, TimeUnit.SECONDS)
     .build()
+
+fun provideDatabase(application: Application) : UserDatabase {
+    return Room.databaseBuilder(application, UserDatabase::class.java, "user_database")
+        .fallbackToDestructiveMigration()
+        .build()
+}
+
+fun provideUserDao(database: UserDatabase) : UserDao {
+    return database.userDao
+}

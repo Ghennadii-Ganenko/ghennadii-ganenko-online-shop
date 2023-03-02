@@ -36,11 +36,11 @@ class SignInFragment : Fragment() {
                         User(
                             email = etEmail.text.toString(),
                             firstName = etFirstName.text.toString(),
-                            lastName = etLastName.text.toString()
+                            lastName = etLastName.text.toString(),
                         )
                     )
 
-                    actionToPage1Fragment()
+                    actionToPage1Fragment(etFirstName.text.toString())
                 }
             }
 
@@ -84,8 +84,8 @@ class SignInFragment : Fragment() {
         findNavController().navigate(action)
     }
 
-    private fun actionToPage1Fragment() {
-        val action = SignInFragmentDirections.actionSignInFragmentToPage1Fragment()
+    private fun actionToPage1Fragment(firstName: String) {
+        val action = SignInFragmentDirections.actionSignInFragmentToPage1Fragment(firstName = firstName)
 
         findNavController().navigate(action)
     }

@@ -1,7 +1,7 @@
 package com.ghennadiiganenko.android.ghennadiiganenko_online_shop.domain.db.repository
 
+import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.db.database.UserDatabase
 import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.db.model.UserEntity
-import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.db.model.database.UserDatabase
 
 class UserRepositoryImpl(private val userDatabase: UserDatabase) : IUserRepository {
     override suspend fun addUser(user: UserEntity) {
@@ -10,6 +10,10 @@ class UserRepositoryImpl(private val userDatabase: UserDatabase) : IUserReposito
 
     override suspend fun deleteUser(user: UserEntity) {
         userDatabase.userDao.deleteUser(user = user)
+    }
+
+    override suspend fun updatePicture(picture: String, firstName: String) {
+        userDatabase.userDao.update(picture = picture, firstName = firstName)
     }
 
     override suspend fun getAll(): List<UserEntity> {

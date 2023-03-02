@@ -11,18 +11,16 @@ import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.domain.network.
 import org.koin.dsl.module
 
 val domainModule = module {
+    //Data
     single<IUserRepository> { UserRepositoryImpl(get()) }
 
     single { UserMapper() }
 
-    single { LatestMapper() }
-
-    single { FlashSaleMapper() }
-
-    //Data
     factory { AddUserUseCase(get(), get()) }
 
     factory { DeleteUserUseCase(get(), get()) }
+
+    factory { UpdatePictureUseCase(get()) }
 
     factory { GetAllUsersUseCase(get(), get()) }
 
@@ -33,6 +31,10 @@ val domainModule = module {
     factory { CheckNameUseCase(get()) }
 
     //Network
+    single { LatestMapper() }
+
+    single { FlashSaleMapper() }
+
     factory { GetLatestUseCase( get(), get()) }
 
     factory { GetFlashSaleUseCase( get(), get()) }

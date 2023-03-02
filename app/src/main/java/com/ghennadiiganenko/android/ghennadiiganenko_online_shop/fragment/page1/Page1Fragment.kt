@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.R
 import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.databinding.FragmentPage1Binding
 import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.domain.network.model.FlashSaleEntity
@@ -19,6 +21,7 @@ import kotlin.properties.Delegates
 class Page1Fragment : Fragment(), LatestAdapter.ItemClickListener, FlashSaleAdapter.ItemClickListener {
     private var binding: FragmentPage1Binding by Delegates.notNull()
     private val viewModel by viewModel<Page1ViewModel>()
+    private val args: Page1FragmentArgs by navArgs()
     private lateinit var latestAdapter: LatestAdapter
     private lateinit var flashSaleAdapter: FlashSaleAdapter
 
@@ -32,11 +35,22 @@ class Page1Fragment : Fragment(), LatestAdapter.ItemClickListener, FlashSaleAdap
             bnvMenu.setOnItemSelectedListener{
                 when(it.itemId) {
                     R.id.action_profile -> {
-                        actionToProfileFragment()
+                        actionToProfileFragment(args.firstName)
                     }
                 }
                 return@setOnItemSelectedListener true
             }
+
+            viewModel.user.observe(viewLifecycleOwner) { result ->
+                Glide
+                    .with(this@Page1Fragment)
+                    .load(result.picture)
+                    .centerCrop()
+                    .placeholder(R.drawable.user_placeholder_photo)
+                    .into(ivUserPhoto)
+            }
+
+            viewModel.getUser(args.firstName)
         }
 
         return binding.root
@@ -51,12 +65,11 @@ class Page1Fragment : Fragment(), LatestAdapter.ItemClickListener, FlashSaleAdap
         flashSaleAdapter = FlashSaleAdapter(this, requireContext(), view)
         binding.rvFlashSale.adapter = flashSaleAdapter
 
-        viewModel.latestList.observe(viewLifecycleOwner) { result ->
-            latestAdapter.submitList(result.latest)
-        }
-
-        viewModel.flashSaleList.observe(viewLifecycleOwner) { result ->
-            flashSaleAdapter.submitList(result.flash_sale)
+        viewModel.productsLists.observe(viewLifecycleOwner) { result ->
+            if (result.first != null && result.second != null) {
+                latestAdapter.submitList(result.first?.latest)
+                flashSaleAdapter.submitList(result.second?.flash_sale)
+            }
         }
 
         viewModel.getLatestList()
@@ -69,8 +82,8 @@ class Page1Fragment : Fragment(), LatestAdapter.ItemClickListener, FlashSaleAdap
         binding.bnvMenu.selectedItemId = R.id.action_home
     }
 
-    private fun actionToProfileFragment() {
-        val action = Page1FragmentDirections.actionPage1FragmentToProfileFragment()
+    private fun actionToProfileFragment(firstName: String) {
+        val action = Page1FragmentDirections.actionPage1FragmentToProfileFragment(firstName = firstName)
 
         findNavController().navigate(action)
     }

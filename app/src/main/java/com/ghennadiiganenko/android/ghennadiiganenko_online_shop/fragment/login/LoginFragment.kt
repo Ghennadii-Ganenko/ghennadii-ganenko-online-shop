@@ -26,7 +26,7 @@ class LoginFragment : Fragment() {
 
             viewModel.nameIsRegistered.observe(viewLifecycleOwner) { result ->
                 if (result == true) {
-                    actionToPage1Fragment()
+                    actionToPage1Fragment(firstName = etFirstName.text.toString())
                 } else {
                     tvIncorrectDataWarning.visibility = View.VISIBLE
                 }
@@ -50,8 +50,8 @@ class LoginFragment : Fragment() {
         return binding.root
     }
 
-    private fun actionToPage1Fragment() {
-        val action = LoginFragmentDirections.actionLoginFragmentToPage1Fragment()
+    private fun actionToPage1Fragment(firstName: String) {
+        val action = LoginFragmentDirections.actionLoginFragmentToPage1Fragment(firstName = firstName)
 
         findNavController().navigate(action)
     }

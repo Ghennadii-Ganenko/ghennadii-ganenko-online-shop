@@ -10,4 +10,5 @@ data class UserEntity(
     @ColumnInfo(name = "firstName") var firstName: String,
     @ColumnInfo(name = "lastName") var lastName: String,
     @ColumnInfo(name = "email") var email: String,
+    @ColumnInfo(name = "picture", defaultValue = "") var picture: String,
 )

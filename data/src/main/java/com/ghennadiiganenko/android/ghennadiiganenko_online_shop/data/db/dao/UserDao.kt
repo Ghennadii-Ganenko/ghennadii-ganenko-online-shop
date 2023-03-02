@@ -11,6 +11,9 @@ interface UserDao {
     @Delete
     fun deleteUser(user: UserEntity)
 
+    @Query("UPDATE user SET picture = :picture WHERE firstName = :firstName")
+    fun update(picture: String, firstName: String)
+
     @Query("SELECT * FROM user")
     fun getAll(): List<UserEntity>
 

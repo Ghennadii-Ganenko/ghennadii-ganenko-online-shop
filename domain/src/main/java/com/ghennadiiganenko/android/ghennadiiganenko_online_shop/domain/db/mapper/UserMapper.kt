@@ -10,7 +10,8 @@ class UserMapper : IEntityMapper<UserEntity, User> {
             uid = entity.uid,
             firstName = entity.firstName,
             lastName = entity.lastName,
-            email = entity.email
+            email = entity.email,
+            picture = entity.picture
         )
     }
 
@@ -19,7 +20,8 @@ class UserMapper : IEntityMapper<UserEntity, User> {
             uid = domainModel.uid,
             firstName = domainModel.firstName,
             lastName = domainModel.lastName,
-            email = domainModel.email
+            email = domainModel.email,
+            picture = domainModel.picture
         )
     }
 }

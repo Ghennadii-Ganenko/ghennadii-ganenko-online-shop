@@ -57,6 +57,7 @@
                     app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
                     android:src="@drawable/user_placeholder_photo"
                     android:padding="1dp"
+                    android:scaleType="centerCrop"
                     app:strokeColor="@color/silver"
                     app:strokeWidth="1dp" />
 
@@ -67,7 +68,7 @@
                     app:layout_constraintTop_toBottomOf="@id/ivUserPhoto"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="6dp"
+                    android:padding="6dp"
                     android:text="@string/change_photo"
                     android:fontFamily="@font/montserrat_medium"
                     android:textColor="@color/gray80"
@@ -81,7 +82,7 @@
                     app:layout_constraintTop_toBottomOf="@id/tvChangePhoto"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="17dp"
+                    android:layout_marginTop="11dp"
                     android:text="@string/user_name"
                     android:fontFamily="@font/montserrat_bold"
                     android:textColor="@color/gray3F"
@@ -105,236 +106,260 @@
                     android:fontFamily="@font/montserrat_bold"
                     android:textSize="14sp" />
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/ivTradeStoreCard"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    app:layout_constraintStart_toStartOf="parent"
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/llTradeStore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/btnUploadItem"
-                    android:layout_marginStart="32dp"
                     android:layout_marginTop="14dp"
-                    android:src="@drawable/ic_credit_card"
-                    android:padding="9dp"
-                    android:background="@drawable/shape_circle"/>
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tvTradeStore"
-                    android:layout_width="wrap_content"
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivTradeStoreCard"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="32dp"
+                        android:src="@drawable/ic_credit_card"
+                        android:padding="9dp"
+                        android:background="@drawable/shape_circle"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTradeStore"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:text="@string/trade_store"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:textColor="@color/maire"
+                        android:textSize="14sp"/>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivTradeStoreMore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="45.5dp"
+                        android:src="@drawable/ic_arrow_right"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/llPaymentMethod"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toEndOf="@id/ivTradeStoreCard"
-                    app:layout_constraintTop_toTopOf="@id/ivTradeStoreCard"
-                    app:layout_constraintBottom_toBottomOf="@id/ivTradeStoreCard"
-                    android:layout_marginStart="6dp"
-                    android:text="@string/trade_store"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:textColor="@color/maire"
-                    android:textSize="14sp"/>
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/ivTradeStoreMore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/ivTradeStoreCard"
-                    app:layout_constraintBottom_toBottomOf="@id/ivTradeStoreCard"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="45.5dp"
-                    android:src="@drawable/ic_arrow_right"/>
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/ivPaymentMethodCard"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ivTradeStoreCard"
-                    android:layout_marginStart="32dp"
+                    app:layout_constraintTop_toBottomOf="@id/llTradeStore"
                     android:layout_marginTop="25dp"
-                    android:src="@drawable/ic_credit_card"
-                    android:padding="9dp"
-                    android:background="@drawable/shape_circle"/>
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tvPaymentMethod"
-                    android:layout_width="wrap_content"
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivPaymentMethodCard"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="32dp"
+                        android:src="@drawable/ic_credit_card"
+                        android:padding="9dp"
+                        android:background="@drawable/shape_circle"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvPaymentMethod"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:text="@string/payment_method"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:textColor="@color/maire"
+                        android:textSize="14sp"/>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivPaymentMethodMore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="45.5dp"
+                        android:src="@drawable/ic_arrow_right"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/llBalance"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toEndOf="@id/ivPaymentMethodCard"
-                    app:layout_constraintTop_toTopOf="@id/ivPaymentMethodCard"
-                    app:layout_constraintBottom_toBottomOf="@id/ivPaymentMethodCard"
-                    android:layout_marginStart="6dp"
-                    android:text="@string/payment_method"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:textColor="@color/maire"
-                    android:textSize="14sp"/>
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/ivPaymentMethodMore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/ivPaymentMethodCard"
-                    app:layout_constraintBottom_toBottomOf="@id/ivPaymentMethodCard"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="45.5dp"
-                    android:src="@drawable/ic_arrow_right"/>
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/ivBalanceCard"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ivPaymentMethodCard"
-                    android:layout_marginStart="32dp"
+                    app:layout_constraintTop_toBottomOf="@id/llPaymentMethod"
                     android:layout_marginTop="25dp"
-                    android:src="@drawable/ic_credit_card"
-                    android:padding="9dp"
-                    android:background="@drawable/shape_circle"/>
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tvBalance"
-                    android:layout_width="wrap_content"
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivBalanceCard"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="32dp"
+                        android:src="@drawable/ic_credit_card"
+                        android:padding="9dp"
+                        android:background="@drawable/shape_circle"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvBalance"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:text="@string/balance"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:textColor="@color/maire"
+                        android:textSize="14sp"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="31dp"
+                        android:paddingHorizontal="10dp"
+                        android:gravity="end"
+                        android:text="@string/balance_number"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:textColor="@color/maire"
+                        android:textSize="14sp"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/llTradeHistory"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toEndOf="@id/ivBalanceCard"
-                    app:layout_constraintTop_toTopOf="@id/ivBalanceCard"
-                    app:layout_constraintBottom_toBottomOf="@id/ivBalanceCard"
-                    android:layout_marginStart="6dp"
-                    android:text="@string/balance"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:textColor="@color/maire"
-                    android:textSize="14sp"/>
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/ivBalanceCard"
-                    app:layout_constraintBottom_toBottomOf="@id/ivBalanceCard"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="31dp"
-                    android:paddingHorizontal="10dp"
-                    android:gravity="end"
-                    android:text="@string/balance_number"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:textColor="@color/maire"
-                    android:textSize="14sp"/>
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/ivTradeHistoryCard"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ivBalanceCard"
-                    android:layout_marginStart="32dp"
+                    app:layout_constraintTop_toBottomOf="@id/llBalance"
                     android:layout_marginTop="25dp"
-                    android:src="@drawable/ic_credit_card"
-                    android:padding="9dp"
-                    android:background="@drawable/shape_circle"/>
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tvTradeHistory"
-                    android:layout_width="wrap_content"
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivTradeHistoryCard"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="32dp"
+                        android:src="@drawable/ic_credit_card"
+                        android:padding="9dp"
+                        android:background="@drawable/shape_circle"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTradeHistory"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:text="@string/trade_history"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:textColor="@color/maire"
+                        android:textSize="14sp"/>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivTradeHistoryMore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="45.5dp"
+                        android:src="@drawable/ic_arrow_right"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/llRestorePurchase"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toEndOf="@id/ivTradeHistoryCard"
-                    app:layout_constraintTop_toTopOf="@id/ivTradeHistoryCard"
-                    app:layout_constraintBottom_toBottomOf="@id/ivTradeHistoryCard"
-                    android:layout_marginStart="6dp"
-                    android:text="@string/trade_history"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:textColor="@color/maire"
-                    android:textSize="14sp"/>
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/ivTradeHistoryMore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/ivTradeHistoryCard"
-                    app:layout_constraintBottom_toBottomOf="@id/ivTradeHistoryCard"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="45.5dp"
-                    android:src="@drawable/ic_arrow_right"/>
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/ivRestorePurchase"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ivTradeHistoryCard"
-                    android:layout_marginStart="32dp"
+                    app:layout_constraintTop_toBottomOf="@id/llTradeHistory"
                     android:layout_marginTop="25dp"
-                    android:src="@drawable/ic_reload"
-                    android:padding="9dp"
-                    android:background="@drawable/shape_circle"/>
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tvRestorePurchase"
-                    android:layout_width="wrap_content"
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivRestorePurchase"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="32dp"
+                        android:src="@drawable/ic_reload"
+                        android:padding="9dp"
+                        android:background="@drawable/shape_circle"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvRestorePurchase"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:text="@string/restore_purchase"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:textColor="@color/maire"
+                        android:textSize="14sp"/>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivRestorePurchaseMore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="45.5dp"
+                        android:src="@drawable/ic_arrow_right"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/llHelp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toEndOf="@id/ivRestorePurchase"
-                    app:layout_constraintTop_toTopOf="@id/ivRestorePurchase"
-                    app:layout_constraintBottom_toBottomOf="@id/ivRestorePurchase"
-                    android:layout_marginStart="6dp"
-                    android:text="@string/restore_purchase"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:textColor="@color/maire"
-                    android:textSize="14sp"/>
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/ivRestorePurchaseMore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/ivRestorePurchase"
-                    app:layout_constraintBottom_toBottomOf="@id/ivRestorePurchase"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="45.5dp"
-                    android:src="@drawable/ic_arrow_right"/>
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/ivHelp"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ivRestorePurchase"
-                    android:layout_marginStart="32dp"
+                    app:layout_constraintTop_toBottomOf="@id/llRestorePurchase"
                     android:layout_marginTop="25dp"
-                    android:src="@drawable/ic_help"
-                    android:padding="9dp"
-                    android:background="@drawable/shape_circle"/>
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tvHelp"
-                    android:layout_width="wrap_content"
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivHelp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="32dp"
+                        android:src="@drawable/ic_help"
+                        android:padding="9dp"
+                        android:background="@drawable/shape_circle"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvHelp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:text="@string/help"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:textColor="@color/maire"
+                        android:textSize="14sp"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/llLogOut"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toEndOf="@id/ivHelp"
-                    app:layout_constraintTop_toTopOf="@id/ivHelp"
-                    app:layout_constraintBottom_toBottomOf="@id/ivHelp"
-                    android:layout_marginStart="6dp"
-                    android:text="@string/help"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:textColor="@color/maire"
-                    android:textSize="14sp"/>
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/ivLogOut"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ivHelp"
-                    android:layout_marginStart="32dp"
+                    app:layout_constraintTop_toBottomOf="@id/llHelp"
                     android:layout_marginTop="25dp"
-                    android:src="@drawable/ic_log_out"
-                    android:padding="9dp"
-                    android:background="@drawable/shape_circle"/>
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tvLogOut"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toEndOf="@id/ivLogOut"
-                    app:layout_constraintTop_toTopOf="@id/ivLogOut"
-                    app:layout_constraintBottom_toBottomOf="@id/ivLogOut"
-                    android:layout_marginStart="6dp"
-                    android:text="@string/log_out"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:textColor="@color/maire"
-                    android:textSize="14sp"/>
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivLogOut"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="32dp"
+                        android:src="@drawable/ic_log_out"
+                        android:padding="9dp"
+                        android:background="@drawable/shape_circle"/>
 
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvLogOut"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginStart="6dp"
+                        android:text="@string/log_out"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:textColor="@color/maire"
+                        android:textSize="14sp"/>
 
+                </androidx.appcompat.widget.LinearLayoutCompat>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 

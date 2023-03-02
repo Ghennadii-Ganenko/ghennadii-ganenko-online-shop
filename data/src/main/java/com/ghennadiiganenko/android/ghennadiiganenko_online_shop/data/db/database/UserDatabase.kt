@@ -1,4 +1,4 @@
-package com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.db.model.database
+package com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.db.database
 
 import android.content.Context
 import androidx.room.Database

@@ -41,6 +41,9 @@
         <action
             android:id="@+id/action_page1Fragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <argument
+            android:name="firstName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -50,8 +53,11 @@
         <action
             android:id="@+id/action_profileFragment_to_signInFragment"
             app:destination="@id/signInFragment"
-            app:popUpTo="@id/signInFragment"
+            app:popUpTo="@id/page1Fragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="firstName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/page2Fragment"
