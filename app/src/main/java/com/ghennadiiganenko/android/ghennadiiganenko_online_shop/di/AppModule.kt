@@ -2,6 +2,7 @@ package com.ghennadiiganenko.android.ghennadiiganenko_online_shop.di
 
 import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.fragment.login.viewmodel.LoginViewModel
 import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.fragment.page1.viewmodel.Page1ViewModel
+import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.fragment.page2.viewmodel.Page2ViewModel
 import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.fragment.profile.viewmodel.ProfileViewModel
 import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.fragment.sign.viewmodel.SignInViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -33,6 +34,12 @@ val appModule = module {
         ProfileViewModel(
             updatePictureUseCase = get(),
             getUserUseCase = get()
+        )
+    }
+
+    viewModel<Page2ViewModel> {
+        Page2ViewModel(
+            getDetailsUseCase = get()
         )
     }
 }

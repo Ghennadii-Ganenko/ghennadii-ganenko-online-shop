@@ -2,12 +2,12 @@ package com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.network.r
 
 import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.network.api.Result
 import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.network.datasource.RemoteDataSource
-import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.network.model.LatestData
+import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.network.model.LatestListData
 
 class LatestRepository(
     private val remoteDataSource: RemoteDataSource,
 ) {
-    suspend fun getLatestList(): LatestData? {
+    suspend fun getLatestList(): LatestListData? {
         val result = remoteDataSource.getLatest()
         if (result.status == Result.Status.SUCCESS) {
             return result.data ?: return null

@@ -1,10 +1,10 @@
 package com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.network.model
 
-data class FlashSaleData(
-    val flash_sale: List<FlashSale>
+data class FlashSaleListData(
+    val flash_sale: List<FlashSaleData>
 )
 
-data class FlashSale(
+data class FlashSaleData(
     val category: String,
     val discount: Int,
     val image_url: String,

@@ -82,17 +82,21 @@ class Page1Fragment : Fragment(), LatestAdapter.ItemClickListener, FlashSaleAdap
         binding.bnvMenu.selectedItemId = R.id.action_home
     }
 
+    override fun onItemClicked(item: LatestEntity, view: View) {}
+
+    override fun onItemClicked(item: FlashSaleEntity, view: View) {
+        actionToPage2Fragment(args.firstName)
+    }
+
     private fun actionToProfileFragment(firstName: String) {
         val action = Page1FragmentDirections.actionPage1FragmentToProfileFragment(firstName = firstName)
 
         findNavController().navigate(action)
     }
 
-    override fun onItemClicked(item: LatestEntity, view: View) {
+    private fun actionToPage2Fragment(firstName: String) {
+        val action = Page1FragmentDirections.actionPage1FragmentToPage2Fragment(firstName = firstName)
 
-    }
-
-    override fun onItemClicked(item: FlashSaleEntity, view: View) {
-
+        findNavController().navigate(action)
     }
 }

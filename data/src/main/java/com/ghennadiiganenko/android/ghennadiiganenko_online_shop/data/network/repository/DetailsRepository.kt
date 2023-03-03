@@ -2,13 +2,13 @@ package com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.network.r
 
 import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.network.api.Result
 import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.network.datasource.RemoteDataSource
-import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.network.model.FlashSaleListData
+import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.network.model.DetailsData
 
-class FlashSaleRepository(
+class DetailsRepository(
     private val remoteDataSource: RemoteDataSource
 ) {
-    suspend fun getFlashSaleList(): FlashSaleListData? {
-        val result = remoteDataSource.getFlashSale()
+    suspend fun getDetailsList(): DetailsData? {
+        val result = remoteDataSource.getDetails()
         if (result.status == Result.Status.SUCCESS) {
             return result.data ?: return null
         }

@@ -1,6 +1,6 @@
 package com.ghennadiiganenko.android.ghennadiiganenko_online_shop.domain.network.model
 
-data class LatestDataEntity(
+data class LatestListEntity(
     val latest: List<LatestEntity>
 )
 

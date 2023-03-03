@@ -4,7 +4,7 @@ import androidx.room.*
 import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.db.model.UserEntity
 
 @Dao
-interface UserDao {
+interface IUserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertUser(user: UserEntity)
 

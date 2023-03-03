@@ -1,18 +1,18 @@
 package com.ghennadiiganenko.android.ghennadiiganenko_online_shop.domain.network.mapper
 
-import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.network.model.FlashSale
 import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.network.model.FlashSaleData
-import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.domain.network.model.FlashSaleDataEntity
+import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.network.model.FlashSaleListData
 import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.domain.network.model.FlashSaleEntity
+import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.domain.network.model.FlashSaleListEntity
 
-class FlashSaleMapper: IMapper<FlashSaleData?, FlashSaleDataEntity?> {
-    override fun map(input: FlashSaleData?): FlashSaleDataEntity? = input?.flash_sale?.map { mapSingle(it) }?.let {
-        FlashSaleDataEntity(
+class FlashSaleMapper: IMapper<FlashSaleListData?, FlashSaleListEntity?> {
+    override fun map(input: FlashSaleListData?): FlashSaleListEntity? = input?.flash_sale?.map { mapSingle(it) }?.let {
+        FlashSaleListEntity(
             flash_sale = it
         )
     }
 
-    private fun mapSingle(input: FlashSale): FlashSaleEntity = FlashSaleEntity(
+    private fun mapSingle(input: FlashSaleData): FlashSaleEntity = FlashSaleEntity(
         category = input.category,
         image_url = input.image_url,
         name = input.name,

@@ -101,12 +101,12 @@ dependencies {
     // Kotlin Extensions and Coroutines support for Room
     implementation ("androidx.room:room-ktx:$room_version")
 
-    //Retrofit & Gson
+    // Retrofit & Gson
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.google.code.gson:gson:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
-    //OkHttp
+    // OkHttp
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
 
     def retrofit_version = "2.9.0"
@@ -114,9 +114,12 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-scalars:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
 
-    //Glide
+    // Glide
     def glide_version = "4.15.0"
 
     implementation "com.github.bumptech.glide:glide:$glide_version"
     kapt "com.github.bumptech.glide:compiler:$glide_version"
+
+    // Image Slider
+    implementation 'com.github.smarteist:autoimageslider:1.4.0'
 }

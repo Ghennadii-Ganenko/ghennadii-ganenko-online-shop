@@ -4,12 +4,12 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.db.dao.UserDao
+import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.db.dao.IUserDao
 import com.ghennadiiganenko.android.ghennadiiganenko_online_shop.data.db.model.UserEntity
 
 @Database(entities = [UserEntity::class], version = 1, exportSchema = false)
 abstract class UserDatabase : RoomDatabase() {
-    abstract val userDao: UserDao
+    abstract val userDao: IUserDao
 
     companion object {
 

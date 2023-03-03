@@ -71,7 +71,7 @@ class ProfileFragment : Fragment() {
             bnvMenu.setOnItemSelectedListener{
                 when(it.itemId) {
                     R.id.action_home -> {
-                        activity?.onBackPressedDispatcher?.onBackPressed()
+                        actionToPage1Fragment(args.firstName)
                     }
                 }
 
@@ -95,6 +95,12 @@ class ProfileFragment : Fragment() {
 
     private fun actionToSignInFragment() {
         val action = ProfileFragmentDirections.actionProfileFragmentToSignInFragment()
+
+        findNavController().navigate(action)
+    }
+
+    private fun actionToPage1Fragment(firstName: String) {
+        val action = ProfileFragmentDirections.actionProfileFragmentToPage1Fragment(firstName = firstName)
 
         findNavController().navigate(action)
     }
