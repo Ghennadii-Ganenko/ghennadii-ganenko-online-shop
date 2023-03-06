@@ -2,7 +2,8 @@
 
 ### Description
 
-  This is an example of e-commerce app for Android.  
+  This is an example of e-commerce app for Android.
+  
   Android version: minSdk = 21, targetSdk 33
   
 ### Technologies and architecture
