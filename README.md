@@ -1,10 +1,10 @@
 # Online Shop
 
-###Description
+### Description
 
   This is an example of e-commerce app for Android.
   
-###Technologies and architecture
+### Technologies and architecture
 
   * Fragments
   * MVVM architecture pattern
@@ -16,7 +16,7 @@
   * Timber
   * Navigation component
   
-###Features
+### Features
 
   1. Sign in and Log in fragments - user authorisation and saving account into database.
   2. Page 1 fragment - store screen with detailed information of example object (all data got from network using Retrofit,  
