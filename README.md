@@ -23,3 +23,11 @@
      lists are implemented using RecyclerView).
   3. Page 2 fragment - example of detailed information about product.
   4. Profile fragment - screen with options to log out from account and update the user's photo
+
+### Screenshots
+
+![Sign In](sign_in.jpg)   ![Log in](log_in.jpg)
+
+![Page 1](page1.jpg)   ![Page 2](page2.jpg)
+
+![Profile](profile.jpg)
